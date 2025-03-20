@@ -1,0 +1,163 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ignacio Doe",
+      "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb093da7d92733c001c0_Ignacio%20Villafruela%20Rodr%C3%ADguez.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Jane Bennett",
+      "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb401d7131c760ca1c63_Elieska%20Lensink.jpg"
+    },
+    {
+      "name": "Daniel Reynolds",
+      "image": "https://img.freepik.com/free-photo/young-man-with-charming-smile-blue-eyes-posing_176420-15602.jpg",
+      "id": 3
+    },
+    {
+      "name": "Regina Hendriksen",
+      "image": "https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg",
+      "id": 4
+    },
+    {
+      "name": "Alice Sullivan",
+      "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "id": 5
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "createdBy": 1,
+      "title": "Trampoline party",
+      "description": "Bounce around with your friends",
+      "image": "https://i.pinimg.com/736x/3d/2f/af/3d2faf4e3188d34a9fcdc00df59e77b0.jpg",
+      "categoryIds": [
+        2
+      ],
+      "location": "My back yard",
+      "startTime": "2023-03-10T18:00",
+      "endTime": "2023-03-10T17:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "createdBy": 1,
+      "title": "Laser Tag mania",
+      "description": "Let's play laser tag!",
+      "image": "https://offloadmedia.feverup.com/secretldn.com/wp-content/uploads/2022/09/18130317/shutterstock_2224085759-min-1024x683.jpg",
+      "categoryIds": [
+        2
+      ],
+      "location": "Blinded by the Lights Laser Tag, 15 Main St.",
+      "startTime": "2023-04-06T18:46",
+      "endTime": "2023-04-06T17:46"
+    },
+    {
+      "id": 3,
+      "createdBy": 2,
+      "title": "Badminton game",
+      "description": "Hit that shuttle!",
+      "image": "https://wincacademy.github.io/webpages/media/pexels-vladvictoria-2202685.jpg",
+      "categoryIds": [
+        1,
+        2
+      ],
+      "location": "The Park",
+      "startTime": "2023-03-15T12:00:00.000Z",
+      "endTime": "2023-03-15T13:30:00.000Z"
+    },
+    {
+      "id": 4,
+      "createdBy": 2,
+      "title": "Yoga",
+      "description": "It's a bit of a stretch.",
+      "image": "https://wincacademy.github.io/webpages/media/pexels-gabby-k-5384538.jpg",
+      "categoryIds": [
+        3
+      ],
+      "location": "Shavasana Yoga School",
+      "startTime": "2023-03-09T06:00:00.000Z",
+      "endTime": "2023-03-09T07:00:00.000Z"
+    },
+    {
+      "title": "Gaming Night",
+      "categoryIds": [
+        2
+      ],
+      "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Accumsan praesent nisi feugiat malesuada diam quis. Eu aenean fusce nascetur interdum facilisi dui. Dui vehicula mi egestas lacinia ac at. Et natoque pulvinar sem; congue ante ex. Ridiculus morbi accumsan ullamcorper efficitur metus cursus vitae turpis. Dis torquent netus diam neque tortor. Est nostra magna tincidunt taciti; sollicitudin lobortis aenean facilisis luctus. Integer euismod quisque elementum neque senectus cubilia dictumst posuere.",
+      "location": "Bovendijk 20, Utrecht",
+      "startTime": "2025-02-21T18:00",
+      "endTime": "2025-02-21T21:00",
+      "createdBy": 3,
+      "image": "https://d12jofbmgge65s.cloudfront.net/wp-content/uploads/2021/11/Best_Video_Games_Twitter.jpg",
+      "id": 5
+    },
+    {
+      "title": "Pottery Painting Workshop",
+      "categoryIds": [
+        5,
+        4
+      ],
+      "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Accumsan praesent nisi feugiat malesuada diam quis. Eu aenean fusce nascetur interdum facilisi dui. Dui vehicula mi egestas lacinia ac at. Et natoque pulvinar sem; congue ante ex. Ridiculus morbi accumsan ullamcorper efficitur metus cursus vitae turpis. Dis torquent netus diam neque tortor. Est nostra magna tincidunt taciti; sollicitudin lobortis aenean facilisis luctus. Integer euismod quisque elementum neque senectus cubilia dictumst posuere.\n\nNatoque sit class at lacinia commodo adipiscing facilisis. Turpis pharetra tempus euismod ipsum diam sagittis montes? Primis neque ex eleifend lectus risus vitae malesuada quisque leo. Parturient bibendum penatibus lectus porta eu neque. Nulla laoreet convallis vestibulum ipsum dictum netus varius proin. Fusce pretium netus ullamcorper sollicitudin cubilia urna mattis. Habitasse maecenas nisl sollicitudin eleifend id malesuada. Augue dapibus felis gravida dictum molestie. Taciti auctor dolor eleifend taciti tincidunt feugiat ridiculus.",
+      "location": "Pottery Cafe, Rotterdam",
+      "startTime": "2025-03-15T10:00",
+      "endTime": "2025-03-15T12:00",
+      "createdBy": 4,
+      "image": "https://images.squarespace-cdn.com/content/v1/5e6d0a5122894149bd3294bf/1628540933527-8VLVUMDVB9SX0F7N7NLM/_M2A1758.jpg?format=1500w",
+      "id": 6
+    },
+    {
+      "title": "Friday Night Karaoke!",
+      "categoryIds": [
+        6
+      ],
+      "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Accumsan praesent nisi feugiat malesuada diam quis. Eu aenean fusce nascetur interdum facilisi dui. ",
+      "location": "Secret Bar, Amsterdam",
+      "startTime": "2025-03-28T19:00",
+      "endTime": "2025-03-28T23:00",
+      "createdBy": 5,
+      "image": "https://ffc.com/wp-content/uploads/2019/06/karaoke-1030x687.jpg",
+      "id": 7
+    },
+    {
+      "title": "Book Club Discussion",
+      "categoryIds": [
+        5
+      ],
+      "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Accumsan praesent nisi feugiat malesuada diam quis. Eu aenean fusce nascetur interdum facilisi dui. Dui vehicula mi egestas lacinia ac at. Et natoque pulvinar sem; congue ante ex. Ridiculus morbi accumsan ullamcorper efficitur metus cursus vitae turpis. Dis torquent netus diam neque tortor. Est nostra magna tincidunt taciti; sollicitudin lobortis aenean facilisis luctus.",
+      "location": "Middenweg 58, 7739 PC",
+      "startTime": "2025-04-12T10:00",
+      "endTime": "2025-04-12T12:00",
+      "createdBy": 5,
+      "image": "https://images.pexels.com/photos/1526049/pexels-photo-1526049.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "id": 8
+    }
+  ],
+  "categories": [
+    {
+      "name": "sports",
+      "id": 1
+    },
+    {
+      "name": "games",
+      "id": 2
+    },
+    {
+      "name": "relaxation",
+      "id": 3
+    },
+    {
+      "name": "workshop",
+      "id": 4
+    },
+    {
+      "name": "art",
+      "id": 5
+    },
+    {
+      "name": "music",
+      "id": 6
+    }
+  ]
+}
