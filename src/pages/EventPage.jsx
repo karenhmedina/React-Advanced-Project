@@ -8,22 +8,40 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { formatDate } from "../utils/formatDate";
 import { OrangeButton } from "../components/ui/OrangeButton";
 import { EditModal } from "../components/EditModal";
 import { DeleteAlert } from "../components/DeleteAlert";
 
 export const loader = async ({ params }) => {
-  const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
-  const users = await fetch("http://localhost:3000/users/");
-  const categories = await fetch("http://localhost:3000/categories");
+  try {
+    const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
+    if (!event.ok) {
+      throw new Error(`Failed to fetch event. Status: ${event.status}`);
+    }
 
-  return {
-    event: await event.json(),
-    users: await users.json(),
-    categories: await categories.json(),
-  };
+    const users = await fetch("http://localhost:3000/users/");
+    if (!users.ok) {
+      throw new Error(`Failed to fetch users. Status: ${users.status}`);
+    }
+
+    const categories = await fetch("http://localhost:3000/categories");
+    if (!categories.ok) {
+      throw new Error(
+        `Failed to fetch categories. Status: ${categories.status}`
+      );
+    }
+
+    return {
+      event: await event.json(),
+      users: await users.json(),
+      categories: await categories.json(),
+    };
+  } catch (error) {
+    console.error("Error loading event data:", error);
+    throw new Error("Failed to load event data.");
+  }
 };
 
 export const EventPage = () => {
@@ -116,13 +134,13 @@ export const EventPage = () => {
 
   return (
     <Box
-      width={{ base: "md", sm: "md", md: "xl", lg: "3xl" }}
+      width={{ base: "90%", sm: "85%", md: "xl", lg: "2xl", xl: "3xl" }}
       maxWidth="100%"
-      paddingLeft={{ base: 8, sm: 8, md: 20 }}
-      paddingRight={{ base: 8, sm: 0, md: 0 }}
+      paddingX={{ base: 4, sm: 4, md: 0 }}
+      mx="auto"
       my={8}
     >
-      <OrangeButton as={Link} to="/" size="sm" marginTop={2}>
+      <OrangeButton size="sm" marginTop={2} onClick={() => navigate(-1)}>
         Go back
       </OrangeButton>
 

@@ -1,8 +1,9 @@
 import {
   Box,
+  Button,
   Checkbox,
   CheckboxGroup,
-  FormControl,
+  Flex,
   FormLabel,
   Input,
   Stack,
@@ -10,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { OrangeButton } from "./ui/OrangeButton";
+import { Link } from "react-router-dom";
 
 export const Form = ({ createEvent, createUser }) => {
   const [title, setTitle] = useState("");
@@ -31,7 +33,7 @@ export const Form = ({ createEvent, createUser }) => {
     });
 
     if (user && user.id) {
-      await createEvent({
+      const newEvent = {
         title,
         categoryIds: categoryIds.map(Number),
         description,
@@ -40,17 +42,21 @@ export const Form = ({ createEvent, createUser }) => {
         endTime,
         createdBy: user.id,
         image: eventImage,
-      });
+      };
 
-      setTitle("");
-      setCategoryIds([]);
-      setDescription("");
-      setLocation("");
-      setStartTime("");
-      setEndTime("");
-      setCreatedBy("");
-      setOrganizerImage("");
-      setEventImage("");
+      const response = await createEvent(newEvent);
+
+      if (response.ok) {
+        setTitle("");
+        setCategoryIds([]);
+        setDescription("");
+        setLocation("");
+        setStartTime("");
+        setEndTime("");
+        setCreatedBy("");
+        setOrganizerImage("");
+        setEventImage("");
+      }
     }
   };
 
@@ -61,17 +67,21 @@ export const Form = ({ createEvent, createUser }) => {
       spacing={4}
       width={{ base: "100%", sm: "sm", md: "md" }}
     >
-      <FormControl isRequired>
-        <FormLabel>Event name</FormLabel>
+      <Box>
+        <FormLabel>
+          Event name <span style={{ color: "red" }}>*</span>
+        </FormLabel>
         <Input
           placeholder="Free Swimming Lesson"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
-      </FormControl>
+      </Box>
 
       <Box>
-        <FormLabel>Categories</FormLabel>
+        <FormLabel>
+          Categories <span style={{ color: "red" }}>*</span>
+        </FormLabel>
         <CheckboxGroup
           value={categoryIds}
           onChange={(values) => setCategoryIds(values)}
@@ -97,7 +107,9 @@ export const Form = ({ createEvent, createUser }) => {
       </Box>
 
       <Box>
-        <FormLabel>Location</FormLabel>
+        <FormLabel>
+          Location <span style={{ color: "red" }}>*</span>
+        </FormLabel>
         <Input
           placeholder="Ferdinand Bolstraat 100, 1072 LM"
           value={location}
@@ -106,7 +118,9 @@ export const Form = ({ createEvent, createUser }) => {
       </Box>
 
       <Box>
-        <FormLabel>Start Date and Time</FormLabel>
+        <FormLabel>
+          Start Date and Time <span style={{ color: "red" }}>*</span>
+        </FormLabel>
         <Input
           type="datetime-local"
           value={startTime}
@@ -115,7 +129,9 @@ export const Form = ({ createEvent, createUser }) => {
       </Box>
 
       <Box>
-        <FormLabel>End Date and Time</FormLabel>
+        <FormLabel>
+          End Date and Time <span style={{ color: "red" }}>*</span>
+        </FormLabel>
         <Input
           type="datetime-local"
           value={endTime}
@@ -123,14 +139,16 @@ export const Form = ({ createEvent, createUser }) => {
         />
       </Box>
 
-      <FormControl isRequired>
-        <FormLabel>Organizer</FormLabel>
+      <Box>
+        <FormLabel>
+          Organizer <span style={{ color: "red" }}>*</span>
+        </FormLabel>
         <Input
           placeholder="Ignacio Doe"
           value={createdBy}
           onChange={(event) => setCreatedBy(event.target.value)}
         />
-      </FormControl>
+      </Box>
 
       <Box>
         <FormLabel>Organizer Image URL</FormLabel>
@@ -152,11 +170,14 @@ export const Form = ({ createEvent, createUser }) => {
         />
       </Box>
 
-      <Box>
+      <Flex gap={2}>
+        <Button as={Link} to="/" marginTop={10} size="md" rounded="full">
+          Cancel
+        </Button>
         <OrangeButton type="submit" marginTop={10}>
           Submit
         </OrangeButton>
-      </Box>
+      </Flex>
     </Stack>
   );
 };

@@ -23,7 +23,7 @@ export const EditModal = ({ event, editEvent }) => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size={{ base: "sm", sm: "sm", md: "md" }}
+        size={{ base: "full", sm: "sm", md: "lg" }}
       >
         <ModalOverlay />
         <ModalContent>

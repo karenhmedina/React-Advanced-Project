@@ -53,7 +53,7 @@ export const EditModalForm = ({ event, editEvent, onClose }) => {
       as="form"
       onSubmit={handleSubmit}
       spacing={4}
-      width={{ base: "xs", sm: "xs", md: "sm" }}
+      width={{ base: "full", sm: "xs", md: "md" }}
     >
       <Box>
         <FormLabel>Event name</FormLabel>

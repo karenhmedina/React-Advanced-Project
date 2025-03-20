@@ -44,6 +44,38 @@ export const NewEvent = () => {
   };
 
   const createEvent = async (newEvent) => {
+    const { title, categoryIds, location, startTime, endTime, createdBy } =
+      newEvent;
+
+    if (
+      !title ||
+      categoryIds.length === 0 ||
+      !location ||
+      !startTime ||
+      !endTime ||
+      !createdBy
+    ) {
+      toast({
+        title: "Missing required fields",
+        description: "Please fill out all required fields.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    if (new Date(endTime) <= new Date(startTime)) {
+      toast({
+        title: "Invalid date and time",
+        description: "End time must be after start time.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:3000/events", {
         method: "POST",
@@ -55,13 +87,15 @@ export const NewEvent = () => {
         throw new Error(`Failed to create event. Status: ${response.status}`);
       }
 
+      const createdEvent = await response.json();
+
       toast({
         title: "Event created!",
         status: "success",
         duration: 5000,
         isClosable: true,
       });
-      navigate("/");
+      navigate(`/event/${createdEvent.id}`);
     } catch (error) {
       toast({
         title: "Failed to create event",
